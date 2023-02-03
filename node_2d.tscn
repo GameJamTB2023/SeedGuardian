@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cq7oeqirx7wky"]
+
+[node name="Main" type="Node"]
+
+[node name="MobTimer" type="Timer" parent="."]
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="."]
+
+[node name="StartPosition" type="Marker2D" parent="."]

@@ -47,6 +47,13 @@ click={
 ]
 }
 
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=1600
+window/stretch/mode="canvas_items"
+f1acfb4 (add: main game scene;)
+
 [rendering]
 
 renderer/rendering_method="mobile"
