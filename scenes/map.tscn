@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcxkbotwwfh1l"]
+
+[ext_resource type="Texture2D" uid="uid://mprj5wjv453q" path="res://assets/images/test_map.png" id="1_rf5bj"]
+[ext_resource type="PackedScene" uid="uid://5lt8848s3obb" path="res://scenes/Character/player.tscn" id="2_xte2m"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TestMap" type="Sprite2D" parent="."]
+position = Vector2(1977, 340)
+texture = ExtResource("1_rf5bj")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_xte2m")]

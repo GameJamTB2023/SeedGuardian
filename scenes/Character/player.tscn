@@ -9,8 +9,10 @@
 script = ExtResource("1_4j737")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(95, 54)
+position = Vector2(-1, 0)
 texture = ExtResource("2_4b51p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_y1hyh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
