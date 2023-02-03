@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvvtlsm5jrw0h"]
+
+[ext_resource type="Script" path="res://scripts/main_script.gd" id="1_cyl18"]
+
+[sub_resource type="Curve2D" id="Curve2D_g5lw5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, 10, 0, 0, 0, 0, 803, 5, 0, 0, 0, 0, 803, 1603, 0, 0, 0, 0, 2, 1598, 0, 0, 0, 0, -1, 10)
+}
+point_count = 5
+
+[node name="Main" type="Node"]
+script = ExtResource("1_cyl18")
+
+[node name="MobTimer" type="Timer" parent="."]
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="."]
+
+[node name="StartPosition" type="Marker2D" parent="."]
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_g5lw5")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2(-1, 10)
+rotation = -0.00621847
