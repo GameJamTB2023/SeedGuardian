@@ -11,3 +11,18 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func new_game():
+	$HUD.update_score(score)
+	$HUD.show_message("Get Ready")
+	get_tree().call_group("mobs", "queue_free")
+
+	
+func end_game():
+	$HUD.show_game_over()
+	
+func _on_ScoreTimer_timeout():
+	$HUD.update_score(score)
+	
+
