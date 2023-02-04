@@ -16,6 +16,7 @@ size = Vector2(6142.75, 59)
 script = ExtResource("1_dl2ia")
 
 [node name="TestMap" type="Sprite2D" parent="."]
+position = Vector2(-195, 153)
 texture = ExtResource("1_rf5bj")
 centered = false
 
@@ -69,7 +70,7 @@ shape = SubResource("RectangleShape2D_8lf34")
 color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_xte2m")]
-position = Vector2(471, 1008)
+position = Vector2(2190, 1479)
 bullet_scene = ExtResource("3_ylflj")
 
 [node name="Collectibles" type="Node2D" parent="."]
