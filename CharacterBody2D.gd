@@ -31,6 +31,7 @@ func _physics_process(delta):
 		move_and_slide()
 	
 func _ready():
+	$AnimatedSprite2d.play()
 	bullet_spawn = $BulletSpawn
 	game_stats = get_node("/root/game_stats")
 	

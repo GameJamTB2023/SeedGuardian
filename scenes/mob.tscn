@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dg3dvipwlu0qc"]
 
-[ext_resource type="Texture2D" uid="uid://n64dqkh76boo" path="res://assets/images/Enemies/Bug1.png" id="1_25xr5"]
-[ext_resource type="Texture2D" uid="uid://bcjk3gfxyy75x" path="res://assets/images/Enemies/Bug2.png" id="2_sl2b8"]
+[ext_resource type="Texture2D" uid="uid://k37frwxsb0xg" path="res://assets/images/Enemies/Bug1.png" id="1_25xr5"]
+[ext_resource type="Texture2D" uid="uid://ck1ihxpfaj488" path="res://assets/images/Enemies/Bug2.png" id="2_sl2b8"]
 
 [sub_resource type="GDScript" id="GDScript_jxtta"]
 script/source = "extends StaticBody2D
@@ -12,15 +12,14 @@ var direction
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	$AnimatedSprite2d.play()
 	var mob_types = $AnimatedSprite2d.get_sprite_frames().get_animation_names()
 	$AnimatedSprite2d.animation = mob_types[randi() % mob_types.size()]
-	#rotation = direction
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position = position + enemy_speed * direction * delta
-	
 
 
 func _on_VisibilityNotifier2D_screen_exited():
@@ -42,12 +41,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_idps4"]
-radius = 54.0
-height = 142.0
+radius = 28.0
+height = 72.0
 
 [node name="Mob" type="StaticBody2D" groups=["mobs"]]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 7
 script = SubResource("GDScript_jxtta")
 metadata/object_type = "enemy"
 

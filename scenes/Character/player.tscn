@@ -1,8 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://5lt8848s3obb"]
+[gd_scene load_steps=9 format=3 uid="uid://5lt8848s3obb"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_4j737"]
-[ext_resource type="Texture2D" uid="uid://clk7dr0l54n2u" path="res://assets/images/seedling_char.png" id="2_6tsgj"]
-[ext_resource type="Texture2D" uid="uid://cl5n1uuqi3idd" path="res://assets/images/light.png" id="3_ihwa4"]
+[ext_resource type="Texture2D" uid="uid://df3mx5evs0uts" path="res://assets/images/seedlingIdle.png" id="2_dpp4h"]
+[ext_resource type="Texture2D" uid="uid://c478xwpy68qy4" path="res://assets/images/light.png" id="3_ihwa4"]
+[ext_resource type="Texture2D" uid="uid://e5dqjpdhloyf" path="res://assets/images/seedling1.png" id="6_wo2fx"]
+[ext_resource type="Texture2D" uid="uid://g7qh4l0qt7xq" path="res://assets/images/seedling2.png" id="7_a31w5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dwvx5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dpp4h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wo2fx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_a31w5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fe2i6"]
 radius = 52.0
@@ -15,11 +34,12 @@ radius = 66.0681
 collision_mask = 10
 script = ExtResource("1_4j737")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, 0)
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_6tsgj")
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_dwvx5")
+animation = &"idle"
+frame_progress = 0.468753
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_fe2i6")

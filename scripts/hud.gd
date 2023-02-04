@@ -37,5 +37,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Health.text = str(game_stats.health)
+	$Health.text = str("Health: ") + str(game_stats.health)
+	$Ammo.text = str("Ammo: ") + str(game_stats.ammo)
 
