@@ -6,7 +6,10 @@ signal collectible_picked_up
 var ammunition: int = 10
 
 func _ready():
-	spawn_ammo($CollectibleSpawnArea, 1000)
+	spawn_ammo($CollectibleSpawnAreas/CollectibleSpawnArea, 5)
+	spawn_ammo($CollectibleSpawnAreas/CollectibleSpawnArea2, 6)
+	spawn_ammo($CollectibleSpawnAreas/CollectibleSpawnArea3, 6)
+	spawn_ammo($CollectibleSpawnAreas/CollectibleSpawnArea4, 8)
 	$Collectibles/Collectible3.collectible_picked_up.connect(pickup_collectible)
 
 func spawn_ammo(rect: ReferenceRect, count: int):

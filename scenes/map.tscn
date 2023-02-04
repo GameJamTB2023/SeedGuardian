@@ -75,12 +75,6 @@ color = Color(0, 0, 0, 1)
 position = Vector2(530, 892)
 bullet_scene = ExtResource("3_ylflj")
 
-[node name="CollectibleSpawnArea" type="ReferenceRect" parent="."]
-offset_left = -1.0
-offset_top = 2.0
-offset_right = 6144.0
-offset_bottom = 3456.0
-
 [node name="Collectibles" type="Node2D" parent="."]
 
 [node name="Collectible3" parent="Collectibles" instance=ExtResource("3_fst1p")]
@@ -88,3 +82,29 @@ position = Vector2(366, 1683)
 disable_mode = 2
 collision_layer = 1
 collision_mask = 1
+
+[node name="CollectibleSpawnAreas" type="Node2D" parent="."]
+
+[node name="CollectibleSpawnArea4" type="ReferenceRect" parent="CollectibleSpawnAreas"]
+offset_left = 3882.0
+offset_top = 1474.0
+offset_right = 6076.0
+offset_bottom = 3114.0
+
+[node name="CollectibleSpawnArea3" type="ReferenceRect" parent="CollectibleSpawnAreas"]
+offset_left = 2416.0
+offset_top = 2275.0
+offset_right = 3564.0
+offset_bottom = 3432.0
+
+[node name="CollectibleSpawnArea2" type="ReferenceRect" parent="CollectibleSpawnAreas"]
+offset_left = 2827.0
+offset_top = 117.0
+offset_right = 4009.0
+offset_bottom = 1290.0
+
+[node name="CollectibleSpawnArea" type="ReferenceRect" parent="CollectibleSpawnAreas"]
+offset_left = 87.0
+offset_top = 1090.0
+offset_right = 2136.0
+offset_bottom = 2128.0
