@@ -14,7 +14,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func new_game():
 	game_stats.game_state_running = true
 	$HUD.update_score(score)

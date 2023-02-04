@@ -1,16 +1,14 @@
 extends Node2D
 @export var collectible_spawn: PackedScene
-
+var game_stats
 signal collectible_picked_up
 
-var ammunition: int = 10
-
 func _ready():
+	game_stats = get_node("/root/game_stats")
 	spawn_ammo($CollectibleSpawnAreas/CollectibleSpawnArea, 5)
 	spawn_ammo($CollectibleSpawnAreas/CollectibleSpawnArea2, 6)
 	spawn_ammo($CollectibleSpawnAreas/CollectibleSpawnArea3, 6)
 	spawn_ammo($CollectibleSpawnAreas/CollectibleSpawnArea4, 8)
-	$Collectibles/Collectible3.collectible_picked_up.connect(pickup_collectible)
 
 func spawn_ammo(rect: ReferenceRect, count: int):
 	var rand = RandomNumberGenerator.new()
@@ -30,7 +28,5 @@ func _process(delta):
 	pass
 
 func pickup_collectible(amount: int):
-	ammunition += amount
 	print("New ammunition count")
-	print(ammunition)
 	emit_signal("collectible_picked_up")

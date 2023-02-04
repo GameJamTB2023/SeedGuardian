@@ -1,7 +1,7 @@
 extends Node
 
 var health
-var ammo
+var ammo = 3
 var game_state_running
 var score
 var heroic = true

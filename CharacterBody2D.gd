@@ -14,11 +14,13 @@ func _process(delta):
 		look_at(get_global_mouse_position())
 	
 	if Input.is_action_just_pressed("fire"):
-		var bullet_instance = bullet_scene.instantiate()
-		bullet_instance.position = bullet_spawn.get_global_position()
-		bullet_instance.rotation_degrees = rotation_degrees
-		bullet_instance.direction = Vector2(1.0,0.0).rotated(rotation).normalized()
-		get_tree().get_root().call_deferred("add_child", bullet_instance)
+		if game_stats.ammo > 0:
+			game_stats.ammo -= 1
+			var bullet_instance = bullet_scene.instantiate()
+			bullet_instance.position = bullet_spawn.get_global_position()
+			bullet_instance.rotation_degrees = rotation_degrees
+			bullet_instance.direction = Vector2(1.0,0.0).rotated(rotation).normalized()
+			get_tree().get_root().call_deferred("add_child", bullet_instance)
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
