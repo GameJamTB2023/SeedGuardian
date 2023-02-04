@@ -66,11 +66,10 @@ position = Vector2(3071, 3486)
 shape = SubResource("RectangleShape2D_8lf34")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="TestMap"]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_xte2m")]
-position = Vector2(530, 892)
+position = Vector2(471, 1008)
 bullet_scene = ExtResource("3_ylflj")
 
 [node name="Collectibles" type="Node2D" parent="."]
