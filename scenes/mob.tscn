@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg3dvipwlu0qc"]
+
+[ext_resource type="Script" path="res://scripts/Mob.gd" id="1_5q0oi"]
+
+[sub_resource type="GDScript" id="GDScript_jxtta"]
+script/source = "extends RigidBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	
+if velocity.x != 0:
+	$AnimatedSprite2D.animation = \"walk\"
+	$AnimatedSprite2D.flip_v = false
+	# See the note below about boolean assignment.
+	$AnimatedSprite2D.flip_h = velocity.x < 0
+elif velocity.y != 0:
+	$AnimatedSprite2D.animation = \"up\"
+	$AnimatedSprite2D.flip_v = velocity.y > 0
+"
+
+[node name="Mob" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+script = SubResource("GDScript_jxtta")
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
+script = ExtResource("1_5q0oi")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+
+[node name="VisibleOnScreenNotifier2d" type="VisibleOnScreenNotifier2D" parent="."]
