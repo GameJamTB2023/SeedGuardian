@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvvtlsm5jrw0h"]
+[gd_scene load_steps=3 format=3 uid="uid://xdycdf3kmbty"]
 
 [ext_resource type="Script" path="res://scripts/main_script.gd" id="1_cyl18"]
 
@@ -24,4 +24,4 @@ curve = SubResource("Curve2D_g5lw5")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 position = Vector2(-1, 10)
-rotation = -0.00621847
+rotation = -0.00621883

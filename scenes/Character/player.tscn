@@ -22,6 +22,5 @@ shape = SubResource("CapsuleShape2D_fe2i6")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(4, 4)
-energy = 1.3
 texture = ExtResource("3_ihwa4")
 texture_scale = 1.3
