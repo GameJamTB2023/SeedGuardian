@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_4j737"]
 [ext_resource type="Texture2D" uid="uid://b5wbv15j8eoom" path="res://icon.svg" id="2_4b51p"]
-[ext_resource type="Texture2D" uid="uid://c478xwpy68qy4" path="res://assets/images/light.png" id="3_ihwa4"]
+[ext_resource type="Texture2D" uid="uid://cl5n1uuqi3idd" path="res://assets/images/light.png" id="3_ihwa4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fe2i6"]
 radius = 61.0
 height = 124.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 3
 script = ExtResource("1_4j737")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -22,5 +23,6 @@ shape = SubResource("CapsuleShape2D_fe2i6")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(4, 4)
+energy = 1.3
 texture = ExtResource("3_ihwa4")
 texture_scale = 1.3

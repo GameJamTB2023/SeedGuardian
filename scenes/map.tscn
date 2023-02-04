@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcxkbotwwfh1l"]
+[gd_scene load_steps=8 format=3 uid="uid://dcxkbotwwfh1l"]
 
+[ext_resource type="Script" path="res://scripts/map.gd" id="1_dl2ia"]
 [ext_resource type="Texture2D" uid="uid://mprj5wjv453q" path="res://assets/images/test_map.png" id="1_rf5bj"]
 [ext_resource type="PackedScene" uid="uid://5lt8848s3obb" path="res://scenes/Character/player.tscn" id="2_xte2m"]
-[ext_resource type="PackedScene" uid="uid://c24cpqhwpe21a" path="res://scenes/Character/bullet.tscn" id="3_ylflj"]
+[ext_resource type="PackedScene" uid="uid://dt0agjw8o3f53" path="res://scenes/collectible.tscn" id="3_fst1p"]
+[ext_resource type="PackedScene" path="res://scenes/Character/bullet.tscn" id="3_ylflj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuy4d"]
 size = Vector2(45, 3456)
@@ -11,6 +13,7 @@ size = Vector2(45, 3456)
 size = Vector2(6142.75, 59)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_dl2ia")
 
 [node name="TestMap" type="Sprite2D" parent="."]
 texture = ExtResource("1_rf5bj")
@@ -69,3 +72,14 @@ color = Color(0, 0, 0, 1)
 [node name="Player" parent="." instance=ExtResource("2_xte2m")]
 position = Vector2(530, 892)
 bullet_scene = ExtResource("3_ylflj")
+
+[node name="Collectibles" type="Node2D" parent="."]
+
+[node name="Collectible" parent="Collectibles" instance=ExtResource("3_fst1p")]
+position = Vector2(628, 1394)
+
+[node name="Collectible2" parent="Collectibles" instance=ExtResource("3_fst1p")]
+position = Vector2(947, 1692)
+
+[node name="Collectible3" parent="Collectibles" instance=ExtResource("3_fst1p")]
+position = Vector2(366, 1683)

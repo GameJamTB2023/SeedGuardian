@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt0agjw8o3f53"]
+
+[ext_resource type="Script" path="res://scripts/collectible.gd" id="1_n07ug"]
+[ext_resource type="Texture2D" uid="uid://lxq20o0uk5i4" path="res://assets/art/enemyWalking_1.png" id="1_q1ue2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sngs0"]
+radius = 154.003
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g6f4x"]
+radius = 130.062
+
+[node name="Collectible" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_n07ug")
+
+[node name="EnemyWalking1" type="Sprite2D" parent="."]
+position = Vector2(-10, 0)
+texture = ExtResource("1_q1ue2")
+
+[node name="CollectibleShape" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_sngs0")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="CollectArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Circle" type="CollisionShape2D" parent="CollectArea"]
+shape = SubResource("CircleShape2D_g6f4x")
+debug_color = Color(0.666667, 0.509804, 0.0352941, 0.419608)
+
+[connection signal="body_shape_entered" from="CollectArea" to="." method="_on_collect_area_body_shape_entered"]
