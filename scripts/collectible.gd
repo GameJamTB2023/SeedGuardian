@@ -1,6 +1,4 @@
-extends Area2D
-
-signal collectible_picked_up
+extends StaticBody2D
 
 @export var amount: int = 1
 var game_stats

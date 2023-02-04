@@ -8,7 +8,10 @@ radius = 15.0
 height = 66.0
 
 [node name="Bullet" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_eisot")
+metadata/object_type = "bullet"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -18,4 +21,4 @@ shape = SubResource("CapsuleShape2D_6og8p")
 rotation = 1.5708
 texture = ExtResource("2_2itq1")
 
-[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

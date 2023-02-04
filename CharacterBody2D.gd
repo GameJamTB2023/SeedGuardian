@@ -32,7 +32,20 @@ func _ready():
 	bullet_spawn = $BulletSpawn
 	game_stats = get_node("/root/game_stats")
 	
-func hit_by_enemy():
+func hit_by_enemy(enemy: Node2D):
 	game_stats.health = game_stats.health - 1
+	enemy.queue_free()
 
 
+
+
+func _on_interact_area_body_entered(body: Node2D):
+	if body.get_meta("object_type") == "ammunition":
+		print("FOUND ammunition")
+		body.queue_free()
+	elif body.get_meta("object_type") == "enemy":
+		print("FOUND enemy")
+		hit_by_enemy(body)
+	else:
+		print("FOUND unknown")
+		print(body.get_meta("object_type"))

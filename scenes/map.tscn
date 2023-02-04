@@ -23,6 +23,8 @@ texture = ExtResource("1_rf5bj")
 centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="TestMap"]
+collision_layer = 2
+collision_mask = 5
 
 [node name="left_upper_area" type="CollisionPolygon2D" parent="TestMap/StaticBody2D"]
 build_mode = 1
@@ -75,14 +77,6 @@ color = Color(0, 0, 0, 1)
 [node name="Player" parent="." instance=ExtResource("2_xte2m")]
 position = Vector2(530, 892)
 bullet_scene = ExtResource("3_ylflj")
-
-[node name="Collectibles" type="Node2D" parent="."]
-
-[node name="Collectible3" parent="Collectibles" instance=ExtResource("3_fst1p")]
-position = Vector2(366, 1683)
-disable_mode = 2
-collision_layer = 1
-collision_mask = 1
 
 [node name="CollectibleSpawnAreas" type="Node2D" parent="."]
 
