@@ -1,12 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dg3dvipwlu0qc"]
+[gd_scene load_steps=6 format=3 uid="uid://dg3dvipwlu0qc"]
 
-[ext_resource type="Script" path="res://scripts/Mob.gd" id="1_5q0oi"]
-[ext_resource type="Texture2D" uid="uid://c5seidvpm23iq" path="res://assets/art/enemyFlyingAlt_1.png" id="1_dd68d"]
-[ext_resource type="Texture2D" uid="uid://cc2nakp7rl8l5" path="res://assets/art/enemyFlyingAlt_2.png" id="2_3dllo"]
-[ext_resource type="Texture2D" uid="uid://b1xy8hur4t7ya" path="res://assets/art/enemySwimming_1.png" id="3_5v3jx"]
-[ext_resource type="Texture2D" uid="uid://ctav5jwassafw" path="res://assets/art/enemySwimming_2.png" id="4_q1cy7"]
-[ext_resource type="Texture2D" uid="uid://lxq20o0uk5i4" path="res://assets/art/enemyWalking_1.png" id="5_q8dkh"]
-[ext_resource type="Texture2D" uid="uid://dlxcdmt4vwvk6" path="res://assets/art/enemyWalking_2.png" id="6_2dxar"]
+[ext_resource type="Texture2D" uid="uid://n64dqkh76boo" path="res://assets/images/Enemies/Bug1.png" id="1_25xr5"]
+[ext_resource type="Texture2D" uid="uid://bcjk3gfxyy75x" path="res://assets/images/Enemies/Bug2.png" id="2_sl2b8"]
 
 [sub_resource type="GDScript" id="GDScript_jxtta"]
 script/source = "extends StaticBody2D
@@ -17,50 +12,29 @@ var direction
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
 	$AnimatedSprite2d.play()
 	var mob_types = $AnimatedSprite2d.get_sprite_frames().get_animation_names()
 	$AnimatedSprite2d.animation = mob_types[randi() % mob_types.size()]
+	#rotation = direction
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position = position + enemy_speed * direction * delta
+	
 
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 "
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_sty47"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_mbic8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_dd68d")
+"texture": ExtResource("1_25xr5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_3dllo")
-}],
-"loop": true,
-"name": &"fly",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_5v3jx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_q1cy7")
-}],
-"loop": true,
-"name": &"swim",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_q8dkh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_2dxar")
+"texture": ExtResource("2_sl2b8")
 }],
 "loop": true,
 "name": &"walk",
@@ -68,8 +42,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_idps4"]
-radius = 28.0
-height = 72.0
+radius = 54.0
+height = 142.0
 
 [node name="Mob" type="StaticBody2D" groups=["mobs"]]
 collision_layer = 2
@@ -78,10 +52,10 @@ script = SubResource("GDScript_jxtta")
 metadata/object_type = "enemy"
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.75, 0.75)
-sprite_frames = SubResource("SpriteFrames_sty47")
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_mbic8")
 animation = &"walk"
-script = ExtResource("1_5q0oi")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_idps4")

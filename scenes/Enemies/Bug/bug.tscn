@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://8cwenjoot0te"]
+[gd_scene load_steps=6 format=3 uid="uid://8cwenjoot0te"]
 
-[ext_resource type="Texture2D" uid="uid://b6xeqa0h845c1" path="res://assets/images/Enemies/Bug1.png" id="1_qfi68"]
-[ext_resource type="Texture2D" uid="uid://bt14n0jwt1q4m" path="res://assets/images/Enemies/Bug2.png" id="2_6t5jo"]
-[ext_resource type="Script" path="res://scripts/Mob.gd" id="3_1rx43"]
+[ext_resource type="Texture2D" uid="uid://n64dqkh76boo" path="res://assets/images/Enemies/Bug1.png" id="1_qfi68"]
+[ext_resource type="Texture2D" uid="uid://bcjk3gfxyy75x" path="res://assets/images/Enemies/Bug2.png" id="2_6t5jo"]
 
 [sub_resource type="GDScript" id="GDScript_jxtta"]
 script/source = "extends RigidBody2D
@@ -52,8 +51,7 @@ rotation = -3.14159
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_sty47")
 animation = &"walk"
-frame_progress = 0.601938
-script = ExtResource("3_1rx43")
+frame_progress = 0.422165
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(-0.068038, -12.9998)
