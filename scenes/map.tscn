@@ -17,6 +17,7 @@ script = ExtResource("1_dl2ia")
 collectible_spawn = ExtResource("3_fst1p")
 
 [node name="TestMap" type="Sprite2D" parent="."]
+position = Vector2(-195, 153)
 texture = ExtResource("1_rf5bj")
 centered = false
 
@@ -67,11 +68,10 @@ position = Vector2(3071, 3486)
 shape = SubResource("RectangleShape2D_8lf34")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="TestMap"]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_xte2m")]
-position = Vector2(551, 917)
+position = Vector2(530, 892)
 bullet_scene = ExtResource("3_ylflj")
 
 [node name="full_map" type="ReferenceRect" parent="."]

@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Seed Guardian"
-run/main_scene="res://scenes/map.tscn"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.svg"
+
+[autoload]
+
+game_stats="*res://scenes/game_stats.tscn"
 
 [display]
 

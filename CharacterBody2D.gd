@@ -5,14 +5,15 @@ extends CharacterBody2D
 
 @export var bullet_scene: PackedScene
 var bullet_spawn: Marker2D
+var game_stats
 
 
 
 func _process(delta):
-	look_at(get_global_mouse_position())
+	if game_stats.game_state_running == true:
+		look_at(get_global_mouse_position())
 	
 	if Input.is_action_just_pressed("fire"):
-		print(bullet_spawn.get_global_position())
 		var bullet_instance = bullet_scene.instantiate()
 		bullet_instance.position = bullet_spawn.get_global_position()
 		bullet_instance.rotation_degrees = rotation_degrees
@@ -24,11 +25,15 @@ func get_input():
 	velocity = input_direction * speed
 
 func _physics_process(delta):
-	get_input()
-	move_and_slide()
+	if game_stats.game_state_running == true:
+		get_input()
+		move_and_slide()
 	
 func _ready():
 	bullet_spawn = $BulletSpawn
+	game_stats = get_node("/root/game_stats")
+	
+	
 
 
 

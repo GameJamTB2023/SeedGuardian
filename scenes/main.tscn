@@ -1,15 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvvtlsm5jrw0h"]
+[gd_scene load_steps=6 format=3 uid="uid://cgdn3mrhlfh77"]
 
-[ext_resource type="Script" path="res://scripts/main_script.gd" id="1_cyl18"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_3135o"]
+[ext_resource type="PackedScene" uid="uid://dg3dvipwlu0qc" path="res://scenes/mob.tscn" id="2_53666"]
+[ext_resource type="PackedScene" uid="uid://bjbbnollwdh4j" path="res://scenes/hud.tscn" id="2_g2057"]
+[ext_resource type="PackedScene" uid="uid://dcxkbotwwfh1l" path="res://scenes/map.tscn" id="3_msfm0"]
 
-[sub_resource type="Curve2D" id="Curve2D_g5lw5"]
+[sub_resource type="Curve2D" id="Curve2D_7kb1m"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1, 10, 0, 0, 0, 0, 803, 5, 0, 0, 0, 0, 803, 1603, 0, 0, 0, 0, 2, 1598, 0, 0, 0, 0, -1, 10)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2728, 0, 0, 0, 0, 0, 5952, 8, 0, 0, 0, 0, 5992, 1704, 0, 0, 0, 0, 5952, 3600, 0, 0, 0, 0, 3008, 3608, 0, 0, 0, 0, 8, 3592, 0, 0, 0, 0, 24, 1792, 0, 0, 0, 0, 0, 0)
 }
-point_count = 5
+point_count = 9
 
 [node name="Main" type="Node"]
-script = ExtResource("1_cyl18")
+script = ExtResource("1_3135o")
+mob_scene = ExtResource("2_53666")
 
 [node name="MobTimer" type="Timer" parent="."]
 
@@ -19,9 +23,16 @@ script = ExtResource("1_cyl18")
 
 [node name="StartPosition" type="Marker2D" parent="."]
 
+[node name="HUD" parent="." instance=ExtResource("2_g2057")]
+
+[node name="map" parent="." instance=ExtResource("3_msfm0")]
+
 [node name="MobPath" type="Path2D" parent="."]
-curve = SubResource("Curve2D_g5lw5")
+curve = SubResource("Curve2D_7kb1m")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
-position = Vector2(-1, 10)
-rotation = -0.00621883
+
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]
