@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 400
+@export var speed = 600
 
 
 @export var bullet_scene: PackedScene
@@ -12,6 +12,7 @@ func _process(delta):
 	look_at(get_global_mouse_position())
 	
 	if Input.is_action_just_pressed("fire"):
+		print(bullet_spawn.get_global_position())
 		var bullet_instance = bullet_scene.instantiate()
 		bullet_instance.position = bullet_spawn.get_global_position()
 		bullet_instance.rotation_degrees = rotation_degrees

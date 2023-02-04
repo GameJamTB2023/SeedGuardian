@@ -1,11 +1,27 @@
 extends Node2D
+@export var collectible_spawn: PackedScene
 
 signal collectible_picked_up
+
 var ammunition: int = 10
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	$Collectibles/Collectible.collectible_picked_up.connect(pickup_collectible)
-	$Collectibles/Collectible2.collectible_picked_up.connect(pickup_collectible)
+	var rand = RandomNumberGenerator.new()
+	var screen_size = get_viewport().get_visible_rect().size
+	for i in range(1, 10):
+		
+		var collectible = collectible_spawn.instantiate()
+		
+		
+
+		
+
+		add_child(collectible)
+		var area = $full_map
+		var position = area.rect_position + Vector2(randf() * area.rect_size.x, randf() * area.rect_size.y)
+		
+		
+
 	$Collectibles/Collectible3.collectible_picked_up.connect(pickup_collectible)
 
 
