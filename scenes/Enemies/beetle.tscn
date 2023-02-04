@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://bitdgkwh4dubw"]
+
+[ext_resource type="Texture2D" uid="uid://dwdvhj3yawsxq" path="res://assets/images/Enemies/Beetle1.png" id="1_gkrl1"]
+[ext_resource type="Texture2D" uid="uid://cbqxi7iyivpco" path="res://assets/images/Enemies/Beetle2.png" id="2_28n0q"]
+[ext_resource type="Script" path="res://scripts/Mob.gd" id="7_7d4ss"]
+
+[sub_resource type="GDScript" id="GDScript_jxtta"]
+script/source = "extends RigidBody2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+
+	$AnimatedSprite2d.play()
+	var mob_types = $AnimatedSprite2d.get_sprite_frames().get_animation_names()
+	$AnimatedSprite2d.animation = mob_types[randi() % mob_types.size()]
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sty47"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gkrl1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_28n0q")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_idps4"]
+radius = 43.0
+height = 148.0
+
+[node name="Mob" type="RigidBody2D" groups=["mobs"]]
+rotation = 1.57603
+collision_mask = 0
+gravity_scale = 0.0
+script = SubResource("GDScript_jxtta")
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_sty47")
+animation = &"walk"
+script = ExtResource("7_7d4ss")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CapsuleShape2D_idps4")
+
+[node name="VisibleOnScreenNotifier2d" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(3, -20)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2d" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
