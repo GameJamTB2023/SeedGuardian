@@ -2,7 +2,6 @@ extends Node2D
 
 signal collectible_picked_up
 var ammunition: int = 10
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Collectibles/Collectible.collectible_picked_up.connect(pickup_collectible)
