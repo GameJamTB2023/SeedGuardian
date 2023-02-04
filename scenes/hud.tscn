@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bjbbnollwdh4j"]
 
-[ext_resource type="FontFile" uid="uid://cx0q5fpsr2ksl" path="res://assets/fonts/Xolonium-Regular.ttf" id="1_l0b2j"]
+[ext_resource type="FontFile" uid="uid://dckdh86flivks" path="res://assets/fonts/Xolonium-Regular.ttf" id="1_l0b2j"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_pnvvm"]
 
 [node name="HUD" type="CanvasLayer"]
@@ -65,6 +65,18 @@ text = "0
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="Health" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("1_l0b2j")
+theme_override_font_sizes/font_size = 64
+text = "Health: 0"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]

@@ -1,10 +1,9 @@
 extends Node
 
-var health
+var health = 3
 var ammo = 3
-var game_state_running
-var score
-var heroic = true
+var game_state_running = false
+var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

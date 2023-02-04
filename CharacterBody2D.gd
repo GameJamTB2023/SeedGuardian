@@ -1,13 +1,10 @@
 extends CharacterBody2D
 
 @export var speed = 600
-
-
 @export var bullet_scene: PackedScene
+
 var bullet_spawn: Marker2D
 var game_stats
-
-
 
 func _process(delta):
 	if game_stats.game_state_running == true:
@@ -35,7 +32,7 @@ func _ready():
 	bullet_spawn = $BulletSpawn
 	game_stats = get_node("/root/game_stats")
 	
-	
-
+func hit_by_enemy():
+	game_stats.health = game_stats.health - 1
 
 

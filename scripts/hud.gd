@@ -2,6 +2,8 @@ extends CanvasLayer
 
 signal start_game
 
+var game_stats
+
 func show_message(text):
 	$Message.text = text
 	$Message.show()
@@ -30,10 +32,10 @@ func _on_message_timer_timeout():
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	game_stats = get_node("/root/game_stats")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	$Health.text = str(game_stats.health)
 

@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://dt0agjw8o3f53"]
 
 [ext_resource type="Script" path="res://scripts/collectible.gd" id="1_n07ug"]
-[ext_resource type="Texture2D" uid="uid://ca3xo6awub8w0" path="res://assets/images/seed_collectable.png" id="2_4cc6d"]
+[ext_resource type="Texture2D" uid="uid://bnq7ewl7a6ntq" path="res://assets/images/seed_collectable.png" id="2_4cc6d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sngs0"]
-radius = 154.003
+radius = 58.8558
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g6f4x"]
 radius = 54.3323
