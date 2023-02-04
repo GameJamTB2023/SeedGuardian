@@ -6,19 +6,23 @@ signal collectible_picked_up
 var ammunition: int = 10
 
 func _ready():
-	var rand = RandomNumberGenerator.new()
-	var screen_size = get_viewport().get_visible_rect().size
-	
-	for i in range(1, 10):
-		var collectible = collectible_spawn.instantiate()
-		add_child(collectible)
-		var area = $full_map
-		var position = area.position + Vector2(randf() * area.size.x, randf() * area.size.y)
-		
+	spawn_ammo($CollectibleSpawnArea, 1000)
 	$Collectibles/Collectible3.collectible_picked_up.connect(pickup_collectible)
 
+func spawn_ammo(rect: ReferenceRect, count: int):
+	var rand = RandomNumberGenerator.new()
+	var spawn_size = rect.size
+	var spawn_position = rect.get_global_position()
+	for i in range(0, count):
+		var collectible = collectible_spawn.instantiate()
+		rand.randomize()
+		var x = rand.randf_range(spawn_position.x, spawn_size.x + spawn_position.x)
+		rand.randomize()
+		var y = rand.randf_range(spawn_position.y, spawn_size.y + spawn_position.y)
+		collectible.position.y = y
+		collectible.position.x = x
+		add_child(collectible)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
