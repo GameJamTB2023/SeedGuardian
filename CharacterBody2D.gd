@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal collectible_picked_up
+
 @export var speed = 600
 @export var bullet_scene: PackedScene
 
@@ -40,12 +42,13 @@ func hit_by_enemy(enemy: Node2D):
 
 
 func _on_interact_area_body_entered(body: Node2D):
-	if body.get_meta("object_type") == "ammunition":
+	if body.get_meta("object_type", "none") == "ammunition":
 		print("FOUND ammunition")
+		game_stats.ammo = game_stats.ammo + 1
+		emit_signal('collectible_picked_up', body.amount)
 		body.queue_free()
 	elif body.get_meta("object_type") == "enemy":
 		print("FOUND enemy")
 		hit_by_enemy(body)
 	else:
 		print("FOUND unknown")
-		print(body.get_meta("object_type"))

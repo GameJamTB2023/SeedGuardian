@@ -8,10 +8,3 @@ func _ready():
 	
 func _process(delta):
 	pass
-
-
-func _on_collect_area_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	game_stats.ammo += 1
-	print("Collecting ammo")
-	emit_signal('collectible_picked_up', amount)
-	queue_free()

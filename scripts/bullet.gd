@@ -15,5 +15,4 @@ func _on_body_entered(body):
 			body.queue_free()
 	else:
 		print("FOUND unknown")
-		print(body.get_meta("object_type"))
 	queue_free()
