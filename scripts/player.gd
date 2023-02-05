@@ -46,6 +46,7 @@ func _on_interact_area_body_entered(body: Node2D):
 	if body.get_meta("object_type", "none") == "ammunition":
 		print("FOUND ammunition")
 		game_stats.ammo = game_stats.ammo + 1
+		game_stats.collectible -= 1
 		emit_signal('collectible_picked_up', body.amount)
 		body.queue_free()
 	elif body.get_meta("object_type", "none") == "enemy":
