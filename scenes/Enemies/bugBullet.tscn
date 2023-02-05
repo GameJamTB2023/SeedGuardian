@@ -7,7 +7,8 @@
 radius = 15.0
 height = 66.0
 
-[node name="Bullet" type="Area2D"]
+[node name="BugBullet" type="Area2D"]
+collision_layer = 16
 script = ExtResource("1_smhxi")
 metadata/object_type = "bugBullet"
 
@@ -19,4 +20,4 @@ shape = SubResource("CapsuleShape2D_6og8p")
 rotation = 1.5708
 texture = ExtResource("2_i2sq7")
 
-[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

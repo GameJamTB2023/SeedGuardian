@@ -41,15 +41,16 @@ func hit_by_enemy(enemy: Node2D):
 
 
 func _on_interact_area_body_entered(body: Node2D):
+	print(body.get_meta("object_type", "none"))
 	if body.get_meta("object_type", "none") == "ammunition":
 		print("FOUND ammunition")
 		game_stats.ammo = game_stats.ammo + 1
 		emit_signal('collectible_picked_up', body.amount)
 		body.queue_free()
-	elif body.get_meta("object_type") == "enemy":
+	elif body.get_meta("object_type", "none") == "enemy":
 		print("FOUND enemy")
 		hit_by_enemy(body)
-	elif body.get_meta("object_type") == "bugBullet":
+	elif body.get_meta("object_type", "none") == "bugBullet":
 		print("FOUND bugBullet")
 		hit_by_enemy(body)
 	else:
