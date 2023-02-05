@@ -5,6 +5,8 @@ var score: int
 
 var game_stats
 
+
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	game_stats = get_node("/root/game_stats")
@@ -14,11 +16,13 @@ func _ready():
 func _process(delta):
 	if game_stats.health == 0:
 		end_game()
+		
 		reset_game()
 		
 
 func new_game():
 	game_stats.game_state_running = true
+	game_stats.score = 0
 	$HUD.update_score(score)
 	score = 0
 	# $Player.start($StartPosition.position)
@@ -69,7 +73,6 @@ func _on_mob_timer_timeout():
 func reset_game():
 	game_stats.health = 3
 	game_stats.ammo = 5
-	game_stats.score = 0
 	game_stats.game_state_running = false
 	$HUD/StartButton.show()
 	
