@@ -13,6 +13,7 @@ func _process(delta):
 		look_at(get_global_mouse_position())
 	
 	if Input.is_action_just_pressed("fire"):
+		
 		if game_stats.ammo > 0:
 			game_stats.ammo -= 1
 			var bullet_instance = bullet_scene.instantiate()

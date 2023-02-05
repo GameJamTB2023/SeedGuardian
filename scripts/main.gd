@@ -12,7 +12,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if game_stats.health == 0:
+		end_game()
 
 func new_game():
 	game_stats.game_state_running = true
