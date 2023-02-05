@@ -16,7 +16,12 @@ func _on_body_entered(body):
 		print("FOUND enemy")
 		body.health = body.health - 1
 		if body.health <= 0:
-			body.queue_free()
+			body.call_deferred("queue_free")
 	else:
 		print("FOUND unknown")
-	queue_free()
+	call_deferred("queue_free")
+
+
+func _on_timer_timeout():
+	print("delete bullet")
+	call_deferred("queue_free")

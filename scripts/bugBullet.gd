@@ -11,9 +11,14 @@ func _on_body_entered(body):
 	if body.get_meta("object_type") == "player":
 		print("FOUND enemy")
 		body.hit_by_enemy(self)
-		queue_free()
+		call_deferred("queue_free")
 	elif body.get_meta("object_type") == "enemy":
 		return
 	else:
 		print("FOUND unknown")
-		queue_free()
+		call_deferred("queue_free")
+
+
+func _on_timer_timeout():
+	print("delete bullet")
+	call_deferred("queue_free")

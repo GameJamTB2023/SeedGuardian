@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://csg174a5huco5" path="res://scenes/Character/bullet.tscn" id="3_ylflj"]
 [ext_resource type="Texture2D" uid="uid://ds3omukic8y6k" path="res://assets/images/background.png" id="6_xud3m"]
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuy4d"]
 size = Vector2(45, 3456)
 
@@ -72,7 +71,6 @@ position = Vector2(3071, 3486)
 shape = SubResource("RectangleShape2D_8lf34")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="TestMap"]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_xte2m")]

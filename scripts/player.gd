@@ -39,17 +39,16 @@ func _ready():
 	
 func hit_by_enemy(enemy: Node2D):
 	game_stats.health = game_stats.health - 1
-	enemy.queue_free()
+	enemy.call_deferred("queue_free")
 
 
 func _on_interact_area_body_entered(body: Node2D):
-	print(body.get_meta("object_type", "none"))
 	if body.get_meta("object_type", "none") == "ammunition":
 		print("FOUND ammunition")
 		game_stats.ammo = game_stats.ammo + 1
 		game_stats.collectible -= 1
 		emit_signal('collectible_picked_up', body.amount)
-		body.queue_free()
+		body.call_deferred("queue_free")
 	elif body.get_meta("object_type", "none") == "enemy":
 		print("FOUND enemy")
 		get_node("Scream").play()

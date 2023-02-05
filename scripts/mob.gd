@@ -20,7 +20,7 @@ func _process(delta):
 
 
 func _on_VisibilityNotifier2D_screen_exited():
-	queue_free()
+	call_deferred("queue_free")
 
 
 func _on_timer_timeout():
@@ -34,10 +34,10 @@ func _on_timer_timeout():
 
 func _on_timer_2_timeout():
 	if(position.x < -700):
-		queue_free()
+		call_deferred("queue_free")
 	elif(position.x > 7000):
-		queue_free()
+		call_deferred("queue_free")
 	elif(position.y < -500):
-		queue_free()
+		call_deferred("queue_free")
 	elif(position.y > 3800):
-		queue_free()
+		call_deferred("queue_free")
