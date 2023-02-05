@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://s0i828585ulc"]
+[gd_scene load_steps=7 format=3 uid="uid://s0i828585ulc"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_3135o"]
 [ext_resource type="PackedScene" uid="uid://cu8qim1usqiqy" path="res://scenes/Enemies/mob.tscn" id="2_cp2wp"]
 [ext_resource type="PackedScene" uid="uid://bjbbnollwdh4j" path="res://scenes/hud.tscn" id="2_g2057"]
 [ext_resource type="PackedScene" uid="uid://dcxkbotwwfh1l" path="res://scenes/map.tscn" id="3_msfm0"]
+[ext_resource type="AudioStream" uid="uid://chixp7gaihnmc" path="res://assets/art/House In a Forest Loop.ogg" id="5_lwga5"]
 
 [sub_resource type="Curve2D" id="Curve2D_7kb1m"]
 _data = {
@@ -31,6 +32,12 @@ mob_scene = ExtResource("2_cp2wp")
 curve = SubResource("Curve2D_7kb1m")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("5_lwga5")
+volume_db = -6.0
+autoplay = true
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
