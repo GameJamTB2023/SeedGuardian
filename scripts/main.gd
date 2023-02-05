@@ -14,6 +14,8 @@ func _ready():
 func _process(delta):
 	if game_stats.health == 0:
 		end_game()
+		reset_game()
+		
 
 func new_game():
 	game_stats.game_state_running = true
@@ -22,13 +24,16 @@ func new_game():
 	# $Player.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.show_message("Get Ready")
-	get_tree().call_group("mobs", "queue_free")
+#	get_tree().call_group("mobs", "queue_free")
 	
 func end_game():
 	game_stats.game_state_running = false
+	get_tree().call_group("mobs", "queue_free")
+	get_tree().call_group("BugBullets", "queue_free")
 	$HUD.show_game_over()
 	$ScoreTimer.stop()
 	$MobTimer.stop()
+	
 	
 func _on_start_timer_timeout():
 	$MobTimer.start()
@@ -64,3 +69,13 @@ func _on_mob_timer_timeout():
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
+	
+func reset_game():
+	game_stats.health = 3
+	game_stats.ammo = 5
+	game_stats.score = 0
+	game_stats.game_state_running = false
+	$HUD/StartButton.show()
+	
+	
+	
