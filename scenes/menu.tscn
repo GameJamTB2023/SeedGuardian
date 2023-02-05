@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://v8qjdyesg0t0"]
+
+[ext_resource type="Texture2D" uid="uid://ctvb6gud3nqkg" path="res://assets/images/Main Menu/menuBackground.png" id="1_h2uhc"]
+[ext_resource type="Texture2D" uid="uid://dsvu4fak3u4vh" path="res://assets/images/Main Menu/Title.png" id="2_uq4aj"]
+[ext_resource type="Texture2D" uid="uid://ccgcchj3yoy00" path="res://assets/images/Main Menu/menuButton.png" id="3_pxsa6"]
+
+[node name="Menu" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_h2uhc")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+auto_translate = false
+alignment = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="title" type="TextureRect" parent="VBoxContainer2/AspectRatioContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+texture = ExtResource("2_uq4aj")
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+alignment_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/AspectRatioContainer"]
+layout_mode = 2
+texture = ExtResource("3_pxsa6")
+stretch_mode = 4
