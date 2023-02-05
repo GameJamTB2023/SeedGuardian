@@ -107,5 +107,5 @@ offset_bottom = 2128.0
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(3094, 1745)
-scale = Vector2(4, 4)
+scale = Vector2(4.5, 4.5)
 texture = ExtResource("6_xud3m")

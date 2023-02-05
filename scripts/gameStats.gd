@@ -1,6 +1,6 @@
 extends Node
 
-var health = 1
+var health = 3
 var ammo = 5
 var game_state_running = false
 var score = 0

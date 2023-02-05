@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://v8qjdyesg0t0"]
+[gd_scene load_steps=4 format=3 uid="uid://mcs6q2mtlsr2"]
 
-[ext_resource type="Texture2D" uid="uid://ctvb6gud3nqkg" path="res://assets/images/Main Menu/menuBackground.png" id="1_h2uhc"]
-[ext_resource type="Texture2D" uid="uid://dsvu4fak3u4vh" path="res://assets/images/Main Menu/Title.png" id="2_uq4aj"]
-[ext_resource type="Texture2D" uid="uid://ccgcchj3yoy00" path="res://assets/images/Main Menu/menuButton.png" id="3_pxsa6"]
+[ext_resource type="Texture2D" uid="uid://duw2b86kl15p1" path="res://assets/images/Main Menu/menuBackground.png" id="1_h2uhc"]
+[ext_resource type="Texture2D" uid="uid://blrykhdttkqxl" path="res://assets/images/Main Menu/Title.png" id="2_uq4aj"]
+[ext_resource type="Texture2D" uid="uid://y6ud2ipf1i4p" path="res://assets/images/Main Menu/menuButton.png" id="3_pxsa6"]
 
 [node name="Menu" type="MarginContainer"]
 anchors_preset = 15
