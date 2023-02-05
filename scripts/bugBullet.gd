@@ -12,6 +12,8 @@ func _on_body_entered(body):
 		print("FOUND enemy")
 		body.hit_by_enemy(self)
 		queue_free()
+	elif body.get_meta("object_type") == "enemy":
+		return
 	else:
 		print("FOUND unknown")
-	queue_free()
+		queue_free()

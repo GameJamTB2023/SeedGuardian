@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://8x40s0p8tyhx"]
+[gd_scene load_steps=10 format=3 uid="uid://8x40s0p8tyhx"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_r4ngr"]
-[ext_resource type="Texture2D" uid="uid://df3mx5evs0uts" path="res://assets/images/seedlingIdle.png" id="2_dpp4h"]
-[ext_resource type="Texture2D" uid="uid://c478xwpy68qy4" path="res://assets/images/light.png" id="3_ihwa4"]
-[ext_resource type="Texture2D" uid="uid://e5dqjpdhloyf" path="res://assets/images/seedling1.png" id="6_wo2fx"]
-[ext_resource type="Texture2D" uid="uid://g7qh4l0qt7xq" path="res://assets/images/seedling2.png" id="7_a31w5"]
+[ext_resource type="Texture2D" uid="uid://b6rkwvs3o5lt1" path="res://assets/images/seedlingIdle.png" id="2_dpp4h"]
+[ext_resource type="Texture2D" uid="uid://cl5n1uuqi3idd" path="res://assets/images/light.png" id="3_ihwa4"]
+[ext_resource type="AudioStream" uid="uid://chixp7gaihnmc" path="res://assets/art/House In a Forest Loop.ogg" id="5_t80j2"]
+[ext_resource type="Texture2D" uid="uid://ckr6nwmtrjkpm" path="res://assets/images/seedling1.png" id="6_wo2fx"]
+[ext_resource type="Texture2D" uid="uid://d3dpy4hvs84fc" path="res://assets/images/seedling2.png" id="7_a31w5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dwvx5"]
 animations = [{
@@ -46,6 +47,12 @@ frame_progress = 0.468753
 shape = SubResource("CapsuleShape2D_fe2i6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="BackGroundMusic" type="AudioStreamPlayer2D" parent="Camera2D"]
+process_mode = 3
+stream = ExtResource("5_t80j2")
+volume_db = -6.0
+autoplay = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(4, 4)
