@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cu8qim1usqiqy"]
+[gd_scene load_steps=9 format=3 uid="uid://cu8qim1usqiqy"]
 
-[ext_resource type="Texture2D" uid="uid://n64dqkh76boo" path="res://assets/images/Enemies/Bug1.png" id="1_25xr5"]
+[ext_resource type="Texture2D" uid="uid://bgk8hf21eqe28" path="res://assets/images/Enemies/Bug1.png" id="1_25xr5"]
 [ext_resource type="PackedScene" uid="uid://du20lpfge5u4s" path="res://scenes/Enemies/bugBullet.tscn" id="1_mfdky"]
 [ext_resource type="Script" path="res://scripts/mob.gd" id="1_xrlep"]
-[ext_resource type="Texture2D" uid="uid://bcjk3gfxyy75x" path="res://assets/images/Enemies/Bug2.png" id="2_sl2b8"]
+[ext_resource type="Texture2D" uid="uid://5thlpbdnwhkt" path="res://assets/images/Enemies/Bug2.png" id="2_sl2b8"]
+[ext_resource type="AudioStream" uid="uid://vppvctaakmdv" path="res://assets/sounds/bugSquash.wav" id="5_v4u67"]
+[ext_resource type="AudioStream" uid="uid://cggeys1mv05sj" path="res://assets/sounds/bugFiring.wav" id="6_5cnyb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mbic8"]
 animations = [{
@@ -51,6 +53,15 @@ autostart = true
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 0.834
 autostart = true
+
+[node name="SqashSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_v4u67")
+volume_db = 11.143
+
+[node name="BugBullet" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_5cnyb")
+volume_db = -3.715
+pitch_scale = 0.72
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

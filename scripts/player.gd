@@ -16,6 +16,7 @@ func _process(delta):
 		
 		if game_stats.ammo > 0:
 			game_stats.ammo -= 1
+			get_node("ShootingSound").play()
 			var bullet_instance = bullet_scene.instantiate()
 			bullet_instance.position = bullet_spawn.get_global_position()
 			bullet_instance.rotation_degrees = rotation_degrees
@@ -51,9 +52,11 @@ func _on_interact_area_body_entered(body: Node2D):
 		body.queue_free()
 	elif body.get_meta("object_type", "none") == "enemy":
 		print("FOUND enemy")
+		get_node("Scream").play()
 		hit_by_enemy(body)
 	elif body.get_meta("object_type", "none") == "bugBullet":
 		print("FOUND bugBullet")
+		get_node("Scream").play()
 		hit_by_enemy(body)
 	else:
 		print("FOUND unknown")

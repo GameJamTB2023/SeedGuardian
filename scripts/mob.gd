@@ -29,6 +29,7 @@ func _on_timer_timeout():
 	bullet_instance2.rotation_degrees = rotation_degrees
 	bullet_instance2.direction = Vector2(1.0,0.0).rotated(rotation).normalized()
 	get_tree().get_root().call_deferred("add_child", bullet_instance2)
+	get_node("BugBullet").play()
 
 
 func _on_timer_2_timeout():
