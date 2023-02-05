@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://cu8qim1usqiqy"]
+
+[ext_resource type="Texture2D" uid="uid://k37frwxsb0xg" path="res://assets/images/Enemies/Bug1.png" id="1_25xr5"]
+[ext_resource type="PackedScene" uid="uid://du20lpfge5u4s" path="res://scenes/Enemies/bugBullet.tscn" id="1_mfdky"]
+[ext_resource type="Script" path="res://scripts/mob.gd" id="1_xrlep"]
+[ext_resource type="Texture2D" uid="uid://ck1ihxpfaj488" path="res://assets/images/Enemies/Bug2.png" id="2_sl2b8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mbic8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_25xr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_sl2b8")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_idps4"]
+radius = 28.0
+height = 72.0
+
+[node name="Mob" type="StaticBody2D" groups=["mobs"]]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_xrlep")
+enemy_bullets = ExtResource("1_mfdky")
+metadata/object_type = "enemy"
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_mbic8")
+animation = &"walk"
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_idps4")
+
+[node name="VisibleOnScreenNotifier2d" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Marker" type="Marker2D" parent="."]
+position = Vector2(42, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.475
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

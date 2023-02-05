@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://5lt8848s3obb"]
+[gd_scene load_steps=9 format=3 uid="uid://8x40s0p8tyhx"]
 
-[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_4j737"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_r4ngr"]
 [ext_resource type="Texture2D" uid="uid://df3mx5evs0uts" path="res://assets/images/seedlingIdle.png" id="2_dpp4h"]
 [ext_resource type="Texture2D" uid="uid://c478xwpy68qy4" path="res://assets/images/light.png" id="3_ihwa4"]
 [ext_resource type="Texture2D" uid="uid://e5dqjpdhloyf" path="res://assets/images/seedling1.png" id="6_wo2fx"]
@@ -32,7 +32,8 @@ radius = 66.0681
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_mask = 10
-script = ExtResource("1_4j737")
+script = ExtResource("1_r4ngr")
+metadata/Playerbox = ""
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
