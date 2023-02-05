@@ -9,6 +9,7 @@ height = 66.0
 
 [node name="BugBullet" type="Area2D" groups=["BugBullets"]]
 collision_layer = 16
+collision_mask = 3
 script = ExtResource("1_smhxi")
 metadata/object_type = "bugBullet"
 

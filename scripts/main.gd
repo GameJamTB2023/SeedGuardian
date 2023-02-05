@@ -43,7 +43,6 @@ func _on_start_timer_timeout():
 func _on_score_timer_timeout():
 		score += 1
 
-
 func _on_mob_timer_timeout():
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()

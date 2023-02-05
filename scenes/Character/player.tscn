@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://8x40s0p8tyhx"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_r4ngr"]
-[ext_resource type="Texture2D" uid="uid://dk1t3kk5akqmd" path="res://assets/images/seedlingIdle.png" id="2_dpp4h"]
-[ext_resource type="Texture2D" uid="uid://qa7na5peoxa5" path="res://assets/images/light.png" id="3_ihwa4"]
-[ext_resource type="Texture2D" uid="uid://bnmrvjasvpxgh" path="res://assets/images/seedling1.png" id="6_wo2fx"]
-[ext_resource type="Texture2D" uid="uid://b4gd5337xcauv" path="res://assets/images/seedling2.png" id="7_a31w5"]
+[ext_resource type="Texture2D" uid="uid://df3mx5evs0uts" path="res://assets/images/seedlingIdle.png" id="2_dpp4h"]
+[ext_resource type="Texture2D" uid="uid://c478xwpy68qy4" path="res://assets/images/light.png" id="3_ihwa4"]
+[ext_resource type="Texture2D" uid="uid://e5dqjpdhloyf" path="res://assets/images/seedling1.png" id="6_wo2fx"]
+[ext_resource type="Texture2D" uid="uid://g7qh4l0qt7xq" path="res://assets/images/seedling2.png" id="7_a31w5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dwvx5"]
 animations = [{

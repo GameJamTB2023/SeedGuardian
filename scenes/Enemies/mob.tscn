@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://cu8qim1usqiqy"]
 
-[ext_resource type="Texture2D" uid="uid://bgk8hf21eqe28" path="res://assets/images/Enemies/Bug1.png" id="1_25xr5"]
+[ext_resource type="Texture2D" uid="uid://k37frwxsb0xg" path="res://assets/images/Enemies/Bug1.png" id="1_25xr5"]
 [ext_resource type="PackedScene" uid="uid://du20lpfge5u4s" path="res://scenes/Enemies/bugBullet.tscn" id="1_mfdky"]
 [ext_resource type="Script" path="res://scripts/mob.gd" id="1_xrlep"]
-[ext_resource type="Texture2D" uid="uid://5thlpbdnwhkt" path="res://assets/images/Enemies/Bug2.png" id="2_sl2b8"]
+[ext_resource type="Texture2D" uid="uid://ck1ihxpfaj488" path="res://assets/images/Enemies/Bug2.png" id="2_sl2b8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mbic8"]
 animations = [{
@@ -42,10 +42,15 @@ shape = SubResource("CapsuleShape2D_idps4")
 [node name="VisibleOnScreenNotifier2d" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="Marker" type="Marker2D" parent="."]
-position = Vector2(42, 0)
+position = Vector2(65, 0)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.475
 autostart = true
 
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.834
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

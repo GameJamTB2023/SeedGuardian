@@ -14,3 +14,4 @@ func _on_body_entered(body):
 		queue_free()
 	else:
 		print("FOUND unknown")
+	queue_free()

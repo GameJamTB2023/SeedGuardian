@@ -29,3 +29,14 @@ func _on_timer_timeout():
 	bullet_instance2.rotation_degrees = rotation_degrees
 	bullet_instance2.direction = Vector2(1.0,0.0).rotated(rotation).normalized()
 	get_tree().get_root().call_deferred("add_child", bullet_instance2)
+
+
+func _on_timer_2_timeout():
+	if(position.x < -700):
+		queue_free()
+	elif(position.x > 7000):
+		queue_free()
+	elif(position.y < -500):
+		queue_free()
+	elif(position.y > 3800):
+		queue_free()
