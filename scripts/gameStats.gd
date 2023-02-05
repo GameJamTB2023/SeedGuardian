@@ -1,7 +1,7 @@
 extends Node
 
 var health = 3
-var ammo = 3
+var ammo = 4
 var game_state_running = false
 var score = 0
 

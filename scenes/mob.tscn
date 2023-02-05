@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dg3dvipwlu0qc"]
+[gd_scene load_steps=7 format=3 uid="uid://dg3dvipwlu0qc"]
 
+[ext_resource type="PackedScene" uid="uid://du20lpfge5u4s" path="res://scenes/Enemies/Bug/bugBullet.tscn" id="1_5suqa"]
 [ext_resource type="Texture2D" uid="uid://k37frwxsb0xg" path="res://assets/images/Enemies/Bug1.png" id="1_25xr5"]
 [ext_resource type="Texture2D" uid="uid://ck1ihxpfaj488" path="res://assets/images/Enemies/Bug2.png" id="2_sl2b8"]
 
@@ -10,9 +11,12 @@ var health = 1
 var enemy_speed = 100
 var direction
 
+@export var enemy_bullets: PackedScene
+
+var bullet_spawn: Marker2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
+	bullet_spawn = $Marker
 	$AnimatedSprite2d.play()
 	var mob_types = $AnimatedSprite2d.get_sprite_frames().get_animation_names()
 	$AnimatedSprite2d.animation = mob_types[randi() % mob_types.size()]
@@ -24,6 +28,14 @@ func _process(delta):
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
+
+
+func _on_timer_timeout():
+	var bullet_instance2 = enemy_bullets.instantiate()
+	bullet_instance2.position = bullet_spawn.get_global_position()
+	bullet_instance2.rotation_degrees = rotation_degrees
+	bullet_instance2.direction = Vector2(1.0,0.0).rotated(rotation).normalized()
+	get_tree().get_root().call_deferred(\"add_child\", bullet_instance2)
 "
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mbic8"]
@@ -48,6 +60,7 @@ height = 72.0
 collision_layer = 2
 collision_mask = 7
 script = SubResource("GDScript_jxtta")
+enemy_bullets = ExtResource("1_5suqa")
 metadata/object_type = "enemy"
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
@@ -60,3 +73,12 @@ animation = &"walk"
 shape = SubResource("CapsuleShape2D_idps4")
 
 [node name="VisibleOnScreenNotifier2d" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Marker" type="Marker2D" parent="."]
+position = Vector2(42, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.475
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

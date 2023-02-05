@@ -39,4 +39,4 @@ func _ready():
 func _process(delta):
 	$Health.text = str("Health: ") + str(game_stats.health)
 	$Ammo.text = str("Ammo: ") + str(game_stats.ammo)
-
+	$ScoreLabel.text = str("Score: ") + str(game_stats.score)

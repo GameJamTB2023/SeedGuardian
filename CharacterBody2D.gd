@@ -40,8 +40,6 @@ func hit_by_enemy(enemy: Node2D):
 	enemy.queue_free()
 
 
-
-
 func _on_interact_area_body_entered(body: Node2D):
 	if body.get_meta("object_type", "none") == "ammunition":
 		print("FOUND ammunition")
@@ -50,6 +48,9 @@ func _on_interact_area_body_entered(body: Node2D):
 		body.queue_free()
 	elif body.get_meta("object_type") == "enemy":
 		print("FOUND enemy")
+		hit_by_enemy(body)
+	elif body.get_meta("object_type") == "bugBullet":
+		print("FOUND bugBullet")
 		hit_by_enemy(body)
 	else:
 		print("FOUND unknown")
