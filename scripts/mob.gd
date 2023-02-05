@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 var health = 1
-var enemy_speed = 100
+var enemy_speed = randi_range(100,500)
 var direction
 
 @export var enemy_bullets: PackedScene
