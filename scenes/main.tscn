@@ -33,7 +33,7 @@ curve = SubResource("Curve2D_7kb1m")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="BackGroundMusic" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("5_lwga5")
 volume_db = -6.0
